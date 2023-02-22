@@ -15,7 +15,7 @@ getPWM()\
 setPWMFreq()\
 getPWMFreq()\
 setOutputMode()\
-update()\
+update()
 
 ## I2C Buffer problem
 The Wire.h library uses a 32 byte buffer for some boards like the Arduino Nano. This library send data packages larger than 32 bytes to the PCA9685. 
