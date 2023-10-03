@@ -151,7 +151,7 @@ uint16_t PCA9685::getPWMFreq()
 /*!
     @brief  Set output mode. Open drain or totem pole
     @param  mode
-            0 for totem pole and 1 for open drain
+            0 for totem pole (default) and 1 for open drain
     @return None (void).
 */
 void PCA9685::setOutputMode(uint8_t mode)
@@ -165,6 +165,22 @@ void PCA9685::setOutputMode(uint8_t mode)
     writeI2C(PCA9685_MODE2, mode2Reg | PCA9685_MODE2_OUTDRV);
 }
 
+/*!
+    @brief  Set output invert. normal or inverted
+    @param  mode
+            0 for active high (default) and 1 for active low
+    @return None (void).
+*/
+void PCA9685::setOutputInvert(uint8_t mode)
+{
+    uint8_t mode2Reg = readI2C(PCA9685_MODE2);
+    if (mode)
+    {
+		writeI2C(PCA9685_MODE2, mode2Reg | PCA9685_MODE2_INVRT);
+        return;
+    writeI2C(PCA9685_MODE2, mode2Reg & ~PCA9685_MODE2_INVRT);
+    }
+}
 /*!
     @brief  Update all 16 PWM Channels.
     @return None (void).
