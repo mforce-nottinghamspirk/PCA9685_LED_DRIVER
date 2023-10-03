@@ -108,6 +108,7 @@
 #define PCA9685_MODE1_AI        0x20
 #define PCA9685_MODE1_ALLCALL   0x01
 #define PCA9685_MODE1_RESTART   0x80
+#define PCA9685_MODE2_INVRT     0x10
 #define PCA9685_MODE2_OUTDRV    0x04
 #define PCA9685_DEFAULT_FREQ    200
 #define PCA9685_MAX_FREQ        1526
@@ -147,6 +148,7 @@ public:
     void setPWMFreq(uint16_t freq);
     uint16_t getPWMFreq();
     void setOutputMode(uint8_t mode);
+    void setOutputInvert(uint8_t mode);
     void update();
 };
 
